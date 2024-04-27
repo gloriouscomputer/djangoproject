@@ -78,9 +78,13 @@ AUTH_USER_MODEL = 'djangoapp.CustomUser'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'mydb.sqlite3',
     }
 }
+AUTHENTICATION_BACKENDS = [
+    # 'djangoapp.backends.CustomAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
 
 
 # Password validation

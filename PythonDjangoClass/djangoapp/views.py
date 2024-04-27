@@ -1,7 +1,10 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Student,CustomUser
 from .forms import StudentForm, CustomUserForm, UserLoginForm
 from django.views import  View
+from django.contrib.auth import authenticate, login as auth_login
+from django.shortcuts import render, redirect
 # Create your views here.
 
 
@@ -52,51 +55,26 @@ class Register(View):
             return render(request, self.template_name, context={'error': error})
 
 
-
-
-
-
-
-
-
-
-
-from django.contrib.auth import authenticate, login as auth_login
-from django.shortcuts import render, redirect
-
-def login(request):
-    if request.method == 'GET':
-        form = UserLoginForm()
-        return render(request, 'login.html', context={'form':form})
-
-    if request.method == 'POST':
-        form = UserLoginForm(request.POST)
-        if form.is_valid():
-            breakpoint()
-            email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
-
-            user = authenticate(request, email=email, password=password)
-            if user is not None:
-                auth_login(request, user)
-                return redirect('home')
-    else:
-        form = UserLoginForm()
-    return render(request, 'login.html', {'form': form})
-
-
-
-class Login(View):
-
+class LoginView(View):
     form_class = UserLoginForm
     template_name = 'login.html'
+
+    def get(self, request):
+        return render(request, 'login.html', {'form': self.form_class()})
+
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
             user = authenticate(request, email=email, password=password)
-            if user:
-                auth_login(request, user)
-                return redirect('home')
-            return render(request, self.template_name, self.form_class)
+            if user is not None:
+                if user.is_active:
+                    auth_login(request,user)
+                    return redirect('home')
+                else:
+                    return HttpResponse("Your account is disabled.")
+            else:
+                return HttpResponse("Invalid login credentials.")
+        else:
+            return render(request, self.template_name, {'form': form})

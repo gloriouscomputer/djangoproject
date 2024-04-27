@@ -1,0 +1,10 @@
+.env
+.env/
+venv
+.venv
+venv/
+
+db.sqlite3
+db.sqlite3/
+mydb.sqlite3
+mydb.sqlite3/
