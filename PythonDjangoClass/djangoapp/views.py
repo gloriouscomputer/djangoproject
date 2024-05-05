@@ -8,15 +8,9 @@ from django.shortcuts import render, redirect
 # Create your views here.
 
 
-def student(request):
-        student = Student.objects.all()
-        print('student', student)
-        return render(request, template_name='index.html')
-
-class StudentView(View):
-    template_name = "index.html"
-    def get(self, request):
-        return render(request, self.template_name)
+class Homeview(View):
+        def get(self, request):
+            return render(request, template_name='index.html')
 
 
 def registration(request):
