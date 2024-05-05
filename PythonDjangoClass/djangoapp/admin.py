@@ -1,7 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
-
 from .models import CustomUser, Blog, Student
 
 class CustomUserAdmin(admin.ModelAdmin):
