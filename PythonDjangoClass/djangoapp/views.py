@@ -72,3 +72,32 @@ class LoginView(View):
                 return HttpResponse("Invalid login credentials.")
         else:
             return render(request, self.template_name, {'form': form})
+
+
+class AboutView(View):
+    def get(self, request):
+        return render(request, template_name='about.html')
+
+class BlogView(View):
+    def get(self, request):
+        return render(request, template_name='blog.html')
+    
+class ContactView(View):
+    def get(self, request):
+        return render(request, template_name='contact.html')
+
+class CourseView(View):
+    def get(self, request):
+        return render(request, template_name='course.html')
+
+class SingleView(View):
+    def get(self, request):
+        return render(request, template_name='single.html')
+
+class TeacherView(View):
+    def get(self, request):
+        return render(request, template_name='teacher.html')
+    
+class DashboardView(View):
+    def get(self, request):
+        return render(request, template_name='Admin-dashboard/dashboard.html')
