@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title%} GCEC {% endblock %}
+
+{% block body %}
+    <!-- Header Start -->
+    <div class="container-fluid page-header" style="margin-bottom: 90px;">
+        <div class="container">
+            <div class="d-flex flex-column justify-content-center" style="min-height: 300px">
+                <h3 class="display-4 text-white text-uppercase">Courses</h3>
+                <div class="d-inline-flex text-white">
+                    <p class="m-0 text-uppercase"><a class="text-white" href="">Home</a></p>
+                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                    <p class="m-0 text-uppercase">Courses</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Category Start -->
+    <section id="home_section"></section>
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <div class="text-center mb-5">
+                <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Subjects</h5>
+                <h1>Explore Top Subjects</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="cat-item position-relative overflow-hidden rounded mb-2">
+                        <img class="img-fluid" src="/static/images/cat-1.jpg" alt="">
+                        <a class="cat-overlay text-white text-decoration-none" href="">
+                            <h4 class="text-white font-weight-medium">Web Design</h4>
+                            <span>100 Courses</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="cat-item position-relative overflow-hidden rounded mb-2">
+                        <img class="img-fluid" src="/static/images/cat-2.jpg" alt="">
+                        <a class="cat-overlay text-white text-decoration-none" href="">
+                            <h4 class="text-white font-weight-medium">Development</h4>
+                            <span>Course</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="cat-item position-relative overflow-hidden rounded mb-2">
+                        <img class="img-fluid" src="/static/images/cat-3.jpg" alt="">
+                        <a class="cat-overlay text-white text-decoration-none" href="">
+                            <h4 class="text-white font-weight-medium">Graphic Design</h4>
+                            <span>10 Courses</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="cat-item position-relative overflow-hidden rounded mb-2">
+                        <img class="img-fluid" src="/static/images/cat-4.jpg" alt="">
+                        <a class="cat-overlay text-white text-decoration-none" href="">
+                            <h4 class="text-white font-weight-medium">Basic Computer</h4>
+                            <span>20+ Courses</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="cat-item position-relative overflow-hidden rounded mb-2">
+                        <img class="img-fluid" src="/static/images/cat-5.jpg" alt="">
+                        <a class="cat-overlay text-white text-decoration-none" href="">
+                            <h4 class="text-white font-weight-medium">English Speaking</h4>
+                            <span>20+ Courses</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="cat-item position-relative overflow-hidden rounded mb-2">
+                        <img class="img-fluid" src="/static/images/cat-6.jpg" alt="">
+                        <a class="cat-overlay text-white text-decoration-none" href="">
+                            <h4 class="text-white font-weight-medium">English Vocabulary</h4>
+                            <span>20+ Courses</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="cat-item position-relative overflow-hidden rounded mb-2">
+                        <img class="img-fluid" src="/static/images/cat-7.jpg/" alt="">
+                        <a class="cat-overlay text-white text-decoration-none" href="">
+                            <h4 class="text-white font-weight-medium">MS Office</h4>
+                            <span>20+ Courses</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="cat-item position-relative overflow-hidden rounded mb-2">
+                        <img class="img-fluid" src="/static/images/cat-8.jpg" alt="">
+                        <a class="cat-overlay text-white text-decoration-none" href="">
+                            <h4 class="text-white font-weight-medium">Other Courses</h4>
+                            <span>100+ Courses</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Category Start -->
+
+
+   <!-- Courses Start -->
+   <div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Courses</h5>
+            <h1>Our Popular Courses</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="rounded overflow-hidden mb-2">
+                    <img class="img-fluid" src="/static/images/course-1.jpg" alt="">
+                    <div class="bg-secondary p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>500+ Students</small>
+{#                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>01h 30m</small>#}
+                        </div>
+                        <a class="h5" href="">In Basic Computer Course you learn Microsoft Office (Word, Excel & Powerpnt etc.)</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>5.0 <small>(450)</small></h6>
+                                <h5 class="m-0">Rs 800</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="rounded overflow-hidden mb-2">
+                    <img class="img-fluid" src="/static/images/course-2.jpg" alt="">
+                    <div class="bg-secondary p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>25+ Students</small>
+{#                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>01h 30m</small>#}
+                        </div>
+                        <a class="h5" href="">in Web designing we learn (web development, web hosting, framework etc.)</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>5.0 <small>(15)</small></h6>
+                                <h5 class="m-0">Rs 1200</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="rounded overflow-hidden mb-2">
+                    <img class="img-fluid" src="/static/images/course-3.jpg" alt="">
+                    <div class="bg-secondary p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>5+ Students</small>
+{#                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>01h 30m</small>#}
+                        </div>
+                        <a class="h5" href="">Graphic Design is the highly demanding courses in digital marketing</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(4)</small></h6>
+                                <h5 class="m-0">Rs 3000</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="rounded overflow-hidden mb-2">
+                    <img class="img-fluid" src="/static/images/course-4.jpg" alt="">
+                    <div class="bg-secondary p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>25+ Students</small>
+{#                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>01h 30m</small>#}
+                        </div>
+                        <a class="h5" href="">learn English spoking, public speaking, basic grammer, In easy and fun way</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(20)</small></h6>
+                                <h5 class="m-0">Rs 800</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="rounded overflow-hidden mb-2">
+                    <img class="img-fluid" src="/static/images/course-5.jpg" alt="">
+                    <div class="bg-secondary p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>25+ Students</small>
+{#                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>01h 30m</small>#}
+                        </div>
+                        <a class="h5" href=""> Best institute for school subjects class 1st to 12th all subject.</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(20)</small></h6>
+                                <h5 class="m-0">Rs 500</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="rounded overflow-hidden mb-2">
+                    <img class="img-fluid" src="/static/images/course-6.jpg" alt="">
+                    <div class="bg-secondary p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>25+ Students</small>
+{#                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>01h 30m</small>#}
+                        </div>
+                        <a class="h5" href="">college subjects, IT courses, Hardware, Software all computer courses</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(20)</small></h6>
+                                <h5 class="m-0">Rs 800</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Courses End -->
+
+{% endblock %}
