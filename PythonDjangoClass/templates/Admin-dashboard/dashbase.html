@@ -28,9 +28,7 @@
   </head>
   <body>
     <div class="container-scroller">
-      {% if request.user.is_authenticated %}
       <!-- partial:partials/_navbar.html -->
-      <p>Welcome, {{ request.user.email }}!</p>
 
       <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
@@ -116,15 +114,11 @@
           <ul class="nav">
             <li class="nav-item nav-category">Main Menu</li>
             <li class="nav-item">
-              {% if request.user.user_role == 'teacher' %}
               <a class="nav-link" href="{% url 'teacher_dashboard' %}">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
-              {% else %}
-              <span class="menu-title">Dashboard1</span>
-              {% endif %}
-
+              
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'studentdata' %}">
@@ -185,10 +179,7 @@
         <!-- main-panel ends -->
       </div>
       <!-- page-body-wrapper ends -->
-       {% else %}
-       <h2>User not Authenticated</h2>
 
-       {% endif %}
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->

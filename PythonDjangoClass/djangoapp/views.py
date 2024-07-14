@@ -4,8 +4,7 @@ from .forms import CustomUserForm, UserLoginForm
 from django.views import  View
 from django.contrib.auth import authenticate, login as auth_login
 from django.shortcuts import render, redirect
-# Create your views here.
-
+from .models import CustomUser
 
 class Homeview(View):
         def get(self, request):
@@ -92,11 +91,49 @@ class DashboardView(View):
    
 class StudentView(View):
     def get(self, request):
-        return render(request, template_name="Admin-dashboard/studentdata.html")
+        student_data = CustomUser.objects.filter(user_role='student')
+        return render(request, template_name="Admin-dashboard/studentdata.html", context={'student_data': student_data})
     
 class RegisterView(View):
+    # def get(self, request):
+    #     return render(request, template_name="Admin-dashboard/student_register.html")
+    """This class write for user registration this will take a request from user """
+    form_class = CustomUserForm
+    template_name = 'Admin-dashboard/student_register.html'
+
     def get(self, request):
-        return render(request, template_name="Admin-dashboard/register.html")
+        """This method write for get user registration form"""
+        return render(request, self.template_name, context={'form': self.form_class})
+
+    def post(self, request):
+        """This method write for validate user registration request and save user in database"""
+        form = self.form_class(request.POST)
+        try:
+            if form.is_valid():
+                username = form.cleaned_data['username'],
+                password=form.cleaned_data['password'],
+                form.save()
+                context={'message':'success', 'user_name':username,
+                         'password':password,'form': self.form_class}
+                return render(request, self.template_name, context=context)
+
+            else:
+                return render(request, self.template_name, context={'form': self.form_class})
+        except Exception as error:
+            return render(request, self.template_name, context={'error': error})
+        
+class StudentUpdateView(View):
+    # def get(self, request):
+    #     return render(request, template_name="Admin-dashboard/student_register.html")
+    """This class write for user registration this will take a request from user """
+    form_class = CustomUserForm
+    template_name = 'Admin-dashboard/student_register.html'
+
+    def get(self, request,student_id):
+        """This method write for get user registration form"""
+        student_data = CustomUser.objects.get(id=student_id)
+        return render(request, self.template_name, context={'student_data': student_data})
+
 
 class BlogView(View):
     def get(self, request):
@@ -109,3 +146,7 @@ class AddblogView(View):
 class DashloginView(View):
     def get(self, request):
         return render(request, template_name="Admin-dashboard/dashlogin.html")
+    
+class SuperadminView(View):
+    def get(self, request):
+        return render(request, template_name='Admin-dashboard/dashhome.html')

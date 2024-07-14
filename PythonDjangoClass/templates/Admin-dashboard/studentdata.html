@@ -15,7 +15,7 @@
                     
       <div class="sort-wrapper">
       <div class="dropdown ml-lg-auto ml-3 toolbar-item">
-            <a class="btn btn-secondary" href="{% url 'register' %}" role="button">Add Students</a>
+            <a class="btn btn-secondary" href="{% url 'student_register' %}" role="button">Add Students</a>
         </div>
       </div>
     </div>
@@ -35,48 +35,28 @@
           <thead>
             <tr>
               <th>S.No.</th>
-              <th>Roll No.</th>
-              <th>Name</th>
-              <th>Add</th>
-              <th>Course</th>
+              <th>StudentId</th>
+              <th>UserName</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1.</td>
-              <td>Viola Ford</td>
-              <td>Paid</td>
-              <td>20 Jan 2019</td>
-              <td>$755</td>
+
+              {% for student in student_data %}
+              <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ student.id }}</td>
+                <td>{{ student.username }}</td>
+                <td>
+                  <ul>
+                    <li>add details</li>
+                    <li><a href="{% url 'student_update' student.id  %}">Edit</a></li>
+                    <li>delete</li>
+                  </ul>
+                </td>
             </tr>
-            <tr>
-              <td>INV-87239</td>
-              <td>Dylan Waters</td>
-              <td>Unpaid</td>
-              <td>23 Feb 2019</td>
-              <td>$800</td>
-            </tr>
-            <tr>
-              <td>INV-87239</td>
-              <td>Louis Poole</td>
-              <td>Unpaid</td>
-              <td>25 Mar 2019</td>
-              <td>$463</td>
-            </tr>
-            <tr>
-              <td>INV-87239</td>
-              <td>Vera Howell</td>
-              <td>Paid</td>
-              <td>27 Mar 2019</td>
-              <td>$235</td>
-            </tr>
-            <tr>
-              <td>INV-87239</td>
-              <td>Allie Goodman</td>
-              <td>Unpaid</td>
-              <td>1 Apr 2019</td>
-              <td>$657</td>
-            </tr>
+            {% endfor %}
+
           </tbody>
         </table>
       </div>

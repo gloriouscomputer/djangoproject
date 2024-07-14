@@ -10,11 +10,10 @@
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
+        <h3>{{user_name}}</h3>
+        <h3>{{password}}</h3>
         <h4 class="card-title">Glorious Computer & English Classes</h4>
-        <p class="card-description">
-          Form
-        </p>
-        <form class="forms-sample">
+        <!-- <form class="forms-sample">
           <div class="form-group">
             <label for="exampleInputName1">Name</label>
             <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
@@ -54,6 +53,23 @@
           </div>
           <button type="submit" class="btn btn-primary mr-2">Submit</button>
           <button class="btn btn-light">Cancel</button>
+        </form> -->
+        <form method="POST" action="{% url 'student_register' %}">
+          {% csrf_token %}
+          {% for field in form %}
+              <div class="fieldWrapper">
+                  <span class="" style="color:red">{{ field.errors }}</span>
+                  <div class="mb-3 row mt-4  ml-2 mr-2">
+                      <span class="col-sm-4 col-form-label">{{ field.label_tag }}</span>
+                      <div class="col-sm-8">
+                          {{ field }}
+                      </div>
+                  </div>
+              </div>
+          {% endfor %}
+        <button type="submit" class="btn btn-primary mb-3">Submit</button>
+          <a class="nav-link" href="{% url 'home' %}">Back to Home</a>
+  
         </form>
       </div>
     </div>
