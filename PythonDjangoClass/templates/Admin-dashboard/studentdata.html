@@ -1,0 +1,68 @@
+{% extends 'Admin-dashboard/dashbase.html' %}
+{% load static %}
+
+{% block title%} Student Data {% endblock %}
+
+{% block body %}
+
+<h3>Student Data</h3>
+
+<!-- Page Title Header Starts-->
+
+<div class="row page-title-header">
+    <div class="col-md-12">
+    <div class="page-header-toolbar">
+                    
+      <div class="sort-wrapper">
+      <div class="dropdown ml-lg-auto ml-3 toolbar-item">
+            <a class="btn btn-secondary" href="{% url 'student_register' %}" role="button">Add Students</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12 grid-margin">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+        <h4 class="card-title mb-0">Students</h4>
+        <a href="#"><small>Show All</small></a>
+      </div>
+      <p>Glorious Computer & English Classes</p>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>S.No.</th>
+              <th>StudentId</th>
+              <th>UserName</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+
+              {% for student in student_data %}
+              <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ student.id }}</td>
+                <td>{{ student.username }}</td>
+                <td>
+                  <ul>
+                    <li>add details</li>
+                    <li><a href="{% url 'student_update' student.id  %}">Edit</a></li>
+                    <li>delete</li>
+                  </ul>
+                </td>
+            </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

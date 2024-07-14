@@ -1,24 +1,11 @@
-from django.forms import ModelForm
-from .models import Student,CustomUser
 from django import forms
-
-class StudentForm(forms.ModelForm):
-    class Meta:
-        model = Student
-        fields = ["first_name", 'username', "last_name", "email", "phone", 'password']
-
-    def __init__(self, *args, **kwargs):
-        super(StudentForm, self).__init__(*args, **kwargs)
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'form-control'
-
+from .models import Student,CustomUser
 
 class CustomUserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
-
     class Meta:
         model = CustomUser
-        fields = ["first_name", "last_name", "email", 'password']
+        fields = ["username",'password', 'user_role']
 
     def __init__(self, *args, **kwargs):
         super(CustomUserForm, self).__init__(*args, **kwargs)
@@ -28,6 +15,8 @@ class CustomUserForm(forms.ModelForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         password = self.cleaned_data["password"]
+        username = self.cleaned_data["username"]
+        user.username = f'{username}_gcec'
         user.set_password(password)  # or use make_password(password)
         if commit:
             user.save()
@@ -48,13 +37,6 @@ class UserLoginForm(forms.Form):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
 
-
-
-
-
-
-
-from django import forms
 
 class LoginForm(forms.Form):
     email = forms.EmailField()
