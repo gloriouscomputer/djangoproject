@@ -5,7 +5,7 @@ from django import forms
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ["first_name", 'username', "last_name", "email", "phone", 'password']
+        fields = ["first_name", 'username', "last_name", "email", "phone", 'password',]
 
     def __init__(self, *args, **kwargs):
         super(StudentForm, self).__init__(*args, **kwargs)
@@ -18,7 +18,7 @@ class CustomUserForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ["first_name", "last_name", "email", 'password']
+        fields = ["first_name", "last_name", "email", 'password', 'user_role']
 
     def __init__(self, *args, **kwargs):
         super(CustomUserForm, self).__init__(*args, **kwargs)

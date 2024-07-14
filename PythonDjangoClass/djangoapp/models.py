@@ -25,6 +25,12 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractUser):
+
+    USERROLE = (
+        ("student", "Student"),
+        ("teacher", "Teacher"),
+        ("admin", "Admin"),
+    )
     username = None
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=255, null=True, blank=True)
@@ -33,7 +39,7 @@ class CustomUser(AbstractUser):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
-
+    user_role = models.CharField(max_length=255, choices=USERROLE, default='admin')
     # Additional fields as per your requirements
 
     objects = CustomUserManager()

@@ -1,7 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Student,CustomUser
-from .forms import StudentForm, CustomUserForm, UserLoginForm
+from .forms import CustomUserForm, UserLoginForm
 from django.views import  View
 from django.contrib.auth import authenticate, login as auth_login
 from django.shortcuts import render, redirect
@@ -11,18 +10,6 @@ from django.shortcuts import render, redirect
 class Homeview(View):
         def get(self, request):
             return render(request, template_name='index.html')
-
-
-def registration(request):
-        if request.method =='GET':
-                form = CustomUserForm()
-                return render(request, template_name='registrations.html', context={'form':form})
-        if request.method == 'POST':
-                form  = CustomUserForm(request.POST)
-                if form.is_valid():
-                        form.save()
-                        return render(request, template_name='registrations.html', context={'form':form})
-                return render(request, template_name='registrations.html', context={'error':'Invalid data', 'form':form})
 
 
 # This is registration form
@@ -65,6 +52,8 @@ class LoginView(View):
             if user is not None:
                 if user.is_active:
                     auth_login(request,user)
+                    if user.user_role == 'teacher':
+                        return redirect('teacher_dashboard')
                     return redirect('home')
                 else:
                     return HttpResponse("Your account is disabled.")
@@ -78,9 +67,7 @@ class AboutView(View):
     def get(self, request):
         return render(request, template_name='about.html')
 
-class BlogView(View):
-    def get(self, request):
-        return render(request, template_name='blog.html')
+
     
 class ContactView(View):
     def get(self, request):
@@ -98,6 +85,27 @@ class TeacherView(View):
     def get(self, request):
         return render(request, template_name='teacher.html')
     
+
 class DashboardView(View):
     def get(self, request):
-        return render(request, template_name='Admin-dashboard/dashboard.html')
+        return render(request, template_name='Admin-dashboard/dashhome.html')
+   
+class StudentView(View):
+    def get(self, request):
+        return render(request, template_name="Admin-dashboard/studentdata.html")
+    
+class RegisterView(View):
+    def get(self, request):
+        return render(request, template_name="Admin-dashboard/register.html")
+
+class BlogView(View):
+    def get(self, request):
+        return render(request, template_name="Admin-dashboard/dashblog.html")
+    
+class AddblogView(View):
+    def get(self, request):
+        return render(request, template_name="Admin-dashboard/addblog.html")
+
+class DashloginView(View):
+    def get(self, request):
+        return render(request, template_name="Admin-dashboard/dashlogin.html")
